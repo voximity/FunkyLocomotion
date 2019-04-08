@@ -50,6 +50,7 @@ public class FunkyLocomotion {
 		TilePusher.powerPerTile = config.get(Configuration.CATEGORY_GENERAL, "energyPerBlock", 250).getInt(250);
 		Recipes.shouldAddRecipes = config.get(Configuration.CATEGORY_GENERAL, "addRecipes", true).getBoolean(true);
 		Recipes.shouldAddFrameCopyResetRecipes = config.get(Configuration.CATEGORY_GENERAL, "addFrameCopyResetRecipes", true).getBoolean(true);
+		Recipes.shouldForceVanillaRecipes = config.get(Configuration.CATEGORY_GENERAL, "forceVanillaRecipes", false).getBoolean(false);
 		redrawChunksInstantly = config.get("client", "redrawChunksInstantly", true).getBoolean(true);
 		if (config.hasChanged())
 			config.save();
