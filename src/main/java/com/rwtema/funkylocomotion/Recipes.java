@@ -28,6 +28,7 @@ import java.util.stream.Stream;
 public class Recipes {
 	public static boolean shouldAddRecipes;
 	public static boolean shouldAddFrameCopyResetRecipes;
+	public static boolean shouldForceVanillaRecipes;
 
 	@SubscribeEvent
 	public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
@@ -160,6 +161,7 @@ public class Recipes {
 	}
 
 	public static Object getOreWithVanillaFallback(Object vanillaFallback, String... moddedOre) {
+		if (shouldForceVanillaRecipes) return vanillaFallback;
 		for (String modOre : moddedOre) {
 			if (OreDictionary.getOres(modOre).size() > 0)
 				return modOre;
